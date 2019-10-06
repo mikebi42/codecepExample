@@ -3,6 +3,8 @@ namespace Grav\Plugin;
 
 use Grav\Common\Plugin;
 use RocketTheme\Toolbox\Event\Event;
+use Grav\Plugin\CodecepExamplePlugin\API\Test;
+
 
 /**
  * Class CodecepExamplePlugin
@@ -63,9 +65,14 @@ class CodecepExamplePlugin extends Plugin
         // Prepend the output with the custom text and set back on the page
         $e['page']->setRawContent($text . "\n\n" . $content);
     }
-}
 
-class CodecepExample extends CodecepExamplePlugin
-{
-    
+    public function callTest()
+    {
+        $data = new \Grav\Common\Data\Data ([
+            'fullname' => "First Last",
+            'email' => "Testemail@codeceptExample"
+           ]);        
+        $t = new Test($data);
+        $t->test($this->grav);
+    }
 }

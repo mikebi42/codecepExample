@@ -12,6 +12,7 @@
 namespace Grav\Plugin\CodecepExamplePlugin\API;
 
 use Grav\Common\Utils;
+use Grav\Common\Plugin;
 
 
 class Test
@@ -24,9 +25,15 @@ class Test
     }
 
 
-    public function test()
+    public function test($grav)
     {
         codecept_debug($this->gdata->get('email'));
-        //$this->config->get('plugins.codecepexample.text_var');
+        // Value for plugins.codecepexample.text_var is set in _bootstrap.php
+        codecept_debug($grav['config']->get('plugins.codecepexample.text_var'));
+
+        return new \Grav\Common\Data\Data ([
+            'email' => $this->gdata->get('email'),
+            'text_var' => $grav['config']->get('plugins.codecepexample.text_var')
+           ]);
     }
 }

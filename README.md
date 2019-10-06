@@ -2,6 +2,9 @@
 
 **This README.md file should be modified to describe the features, installation, configuration, and general usage of the plugin.**
 
+This plugin gives a skeleton to follow for incorporating codeception unit
+test into a plugin while still allowing access to grav variable.
+
 The **Codecep Example** Plugin is an extension for [Grav CMS](http://github.com/getgrav/grav). example of codeception unit test
 
 ## Installation
@@ -45,10 +48,12 @@ Note that if you use the Admin Plugin, a file with your configuration named code
 ## Usage
 
 **Describe how to use the plugin.**
+Run `composer update` to install the testing dependencies. Then run `composer test` in the root folder.
 
 ## Credits
+Thanks to the Grav team for having codeception in the core.
+This pluging copies the bootstrap code.
 
-**Did you incorporate third-party code? Want to thank somebody?**
 
 ## To Do
 
